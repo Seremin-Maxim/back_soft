@@ -169,14 +169,14 @@ exports.signin = (req, res) => {
         });
       }
 
-      const token = jwt.sign({ id: customer.id },
+      const token_ = jwt.sign({ id: customer.id },
                               config.secret,
                               {
                                 algorithm: 'HS256',
                                 allowInsecureKeySizes: true,
                                 expiresIn: 86400, // 24 hours
                               });
-
+      console.log("token auth_c: ", token_);
       var authorities = [];
       customer.getRoles().then(roles => {
         for (let i = 0; i < roles.length; i++) {
@@ -188,10 +188,11 @@ exports.signin = (req, res) => {
           email: customer.email,
           phone_number: customer.phone_number,
           roles: authorities,
-          accessToken: token
+          token: token_,
         });
       });
     })
+    
     .catch(err => {
       res.status(500).send({ message: err.message });
     });

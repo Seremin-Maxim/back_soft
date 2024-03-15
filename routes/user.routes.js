@@ -33,8 +33,7 @@ module.exports = function(app) {
   // Маршрут для получения информации о профиле пользователя
   app.get(
     "/user/profile", 
-    [authJwt.verifyToken], 
+    //[authJwt.verifyToken],
     controller.getUserProfile,
-    //controller.userBoard
   );
 };

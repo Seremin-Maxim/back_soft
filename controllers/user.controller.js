@@ -18,8 +18,11 @@ exports.allAccess = (req, res) => {
   };
   
   exports.getUserProfile = (req, res) => {
-    const customerId = req.id; 
-    console.log('Запрос ФФФФФФФФФФФФФФФФФФФФФФФФФ req:', req);
+    //const customerId = localStorage.getItem("id"); 
+    //console.log("local id: ", localStorage.getItem("id"));
+    const customerId = req.userId;
+    console.log('Запрос ФФФФФФФФФФФФФФФФФФФФФФФФФ req:', customerId);
+    //console.log(req.customer.id, req.customer.name);
     // Проверяем, получили ли мы идентификатор пользователя из токена
     if (!customerId) {
       return res.status(401).json({ message: 'Отсутствует идентификатор пользователя в токене' });
@@ -38,6 +41,7 @@ exports.allAccess = (req, res) => {
       })
       .catch(err => {
         console.error('Ошибка при получении профиля пользователя:', err);
+        console.log("Ошибка в юзер контроллере");
         res.status(500).json({ message: 'Ошибка сервера' });
       });
   };
