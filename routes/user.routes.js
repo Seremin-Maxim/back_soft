@@ -29,4 +29,12 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+
+  // Маршрут для получения информации о профиле пользователя
+  app.get(
+    "/user/profile", 
+    [authJwt.verifyToken], 
+    controller.getUserProfile,
+    //controller.userBoard
+  );
 };

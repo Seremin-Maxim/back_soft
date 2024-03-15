@@ -1,3 +1,6 @@
+const db = require("../models");
+const Customer = db.Customer; 
+
 exports.allAccess = (req, res) => {
     res.status(200).send("Public Content.");
   };
@@ -12,4 +15,29 @@ exports.allAccess = (req, res) => {
   
   exports.moderatorBoard = (req, res) => {
     res.status(200).send("Moderator Content.");
+  };
+  
+  exports.getUserProfile = (req, res) => {
+    const customerId = req.id; 
+    console.log('Запрос ФФФФФФФФФФФФФФФФФФФФФФФФФ req:', req);
+    // Проверяем, получили ли мы идентификатор пользователя из токена
+    if (!customerId) {
+      return res.status(401).json({ message: 'Отсутствует идентификатор пользователя в токене' });
+    }
+    Customer.findByPk(customerId) 
+      .then(customer => {
+        if (!customer) {
+          
+          return res.status(404).json({ message: 'Пользователь не найден' });
+        }
+        res.status(200).json({
+          name: customer.name,
+          email: customer.email,
+          phone_number: customer.phone_number
+        });
+      })
+      .catch(err => {
+        console.error('Ошибка при получении профиля пользователя:', err);
+        res.status(500).json({ message: 'Ошибка сервера' });
+      });
   };
