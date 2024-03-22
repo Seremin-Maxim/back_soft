@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey:'customer_id',
           as:'payments'
         })
-      Customer.hasOne(models.Wishlist)
-      Customer.hasOne(models.ShoppingCart)
+      Customer.hasOne(models.Wishlist, {foreignKey:'customer_id'})
+      Customer.hasOne(models.ShoppingCart, {foreignKey:'customer_id'})
     }
   }
   Customer.init({

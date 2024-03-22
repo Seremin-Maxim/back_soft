@@ -36,5 +36,10 @@ module.exports = function(app) {
     //[authJwt.verifyToken],
     controller.getUserProfile,
   );
+
+  app.get(
+    "/user/product/:id_prod",
+    //controller.getProdById
+  );
   
 };
