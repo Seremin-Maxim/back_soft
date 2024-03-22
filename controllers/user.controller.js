@@ -20,7 +20,7 @@ exports.allAccess = (req, res) => {
   exports.getUserProfile = (req, res) => {
     //const customerId = localStorage.getItem("id"); 
     //console.log("local id: ", localStorage.getItem("id"));
-    const customerId = req.userId;
+    const customerId = req.params.userId;
     console.log('Запрос ФФФФФФФФФФФФФФФФФФФФФФФФФ req:', customerId);
     //console.log(req.customer.id, req.customer.name);
     // Проверяем, получили ли мы идентификатор пользователя из токена
@@ -45,3 +45,4 @@ exports.allAccess = (req, res) => {
         res.status(500).json({ message: 'Ошибка сервера' });
       });
   };
+  

@@ -32,8 +32,9 @@ module.exports = function(app) {
 
   // Маршрут для получения информации о профиле пользователя
   app.get(
-    "/user/profile", 
+    "/user/profile/:userId", 
     //[authJwt.verifyToken],
     controller.getUserProfile,
   );
+  
 };
