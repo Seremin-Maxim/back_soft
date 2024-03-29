@@ -29,6 +29,7 @@ module.exports = function(app) {
     [authJwt.verifyToken, authJwt.isAdmin],
     controller.adminBoard
   );
+  
 
   // Маршрут для получения информации о профиле пользователя
   app.get(
@@ -37,9 +38,4 @@ module.exports = function(app) {
     controller.getUserProfile,
   );
 
-  app.get(
-    "/user/product/:id_prod",
-    //controller.getProdById
-  );
-  
 };

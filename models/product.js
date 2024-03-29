@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasOne(models.OrderItem,{
         foreignKey:'product_id'
       })
-      Product.belongsTo(models.Brand,
+      Product.belongsTo(models.Brands,
         {
           foreignKey:'brand_id',
         })      

@@ -8,6 +8,8 @@ const Role = models.Role;
 const router = express.Router();
 const authJwt = require("./middleware/authJwt");
 const app = express();
+const brand_controller = require('./controllers/brand.controller');
+const category_controller = require('./controllers/category.controller');
 
 const userController = require('./controllers/user.controller');
 
@@ -30,10 +32,16 @@ app.get("", (req,res)=>{
 
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
-
+require('./routes/brand.routes')(app);
+require('./routes/category.routes')(app);
 
 //маршрут для обработки запросов профиля пользователя
 app.get('api/user/profile',authJwt.verifyToken, userController.getUserProfile);
+
+app.post('api/brand/create', brand_controller.createBrand);
+app.post('api/category/create', category_controller.createCategory);
+app.get('api/getbrandID');
+app.get('api/getcategoryID');
 
 
 

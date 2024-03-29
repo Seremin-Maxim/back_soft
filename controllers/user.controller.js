@@ -17,6 +17,7 @@ exports.allAccess = (req, res) => {
     res.status(200).send("Moderator Content.");
   };
   
+  
   exports.getUserProfile = (req, res) => {
     //const customerId = localStorage.getItem("id"); 
     //console.log("local id: ", localStorage.getItem("id"));
