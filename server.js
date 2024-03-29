@@ -34,6 +34,7 @@ require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 require('./routes/brand.routes')(app);
 require('./routes/category.routes')(app);
+require('./routes/product.routes')(app);
 
 //маршрут для обработки запросов профиля пользователя
 app.get('api/user/profile',authJwt.verifyToken, userController.getUserProfile);
@@ -42,7 +43,7 @@ app.post('api/brand/create', brand_controller.createBrand);
 app.post('api/category/create', category_controller.createCategory);
 app.get('api/getbrandID');
 app.get('api/getcategoryID');
-
+app.get('api/product/create/');
 
 
 /*

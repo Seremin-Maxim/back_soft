@@ -1,6 +1,5 @@
 const { authJwt } = require("../middleware");
-const u_controller = require("../controllers/user.controller");
-const p_controller = require("../controllers/product.controller");
+const product_controller = require("../controllers/product.controller");
 
 module.exports = function(app) {
     app.use(function(req, res, next) {
@@ -12,12 +11,12 @@ module.exports = function(app) {
     });
 
     app.get(
-        "/product/:id_prod",
+        "/productGetByID/:id_prod",
         //controller.getProdById
     );
     app.post(
-      "/product/create",
-      brand_controller.createBrand
+      "/product/create/:category_id/:brand_id",
+      product_controller.createProduct
   );
 
 

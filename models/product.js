@@ -27,9 +27,10 @@ module.exports = (sequelize, DataTypes) => {
       Product.hasMany(models.Picture,{
         foreignKey:'product_id'
       })
-      Product.hasOne(models.OrderItem,{
-        foreignKey:'product_id'
-      })
+      // ЭТО Я ИЗМЕНИЛ
+      Product.hasOne(models.OrderItem, {
+        foreignKey: 'order_item_id'
+    });
       Product.belongsTo(models.Brands,
         {
           foreignKey:'brand_id',
