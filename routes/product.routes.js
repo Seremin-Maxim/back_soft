@@ -18,6 +18,26 @@ module.exports = function(app) {
       "/product/create/:category_id/:brand_id",
       product_controller.createProduct
   );
+      
+    app.get(
+    "/productGetAll",
+    product_controller.getProducts
+  );
 
+  app.post(
+    "/productinfo/create/:product_id",
+    product_controller.createProductInfo
+  )
+
+  app.get(
+    "/productGetDescription/:product_id",
+    product_controller.productGetDescription
+  );
+
+  
+
+
+
+    
 
 };

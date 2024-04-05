@@ -44,6 +44,10 @@ app.post('api/category/create', category_controller.createCategory);
 app.get('api/getbrandID');
 app.get('api/getcategoryID');
 app.get('api/product/create/');
+app.get('api/productGetAll');
+app.get('api/productGetDescription');
+app.post('/api/productinfo/create');// проверить нужен ли / в конце
+
 
 
 /*
