@@ -57,7 +57,7 @@ exports.productGetDescription = async (req, res) => {
         const product_info = await Product_Info.findOne({ where: { product_id: prod_id } });
         
         if (product_info) {
-            console.log("INFO ================ " + product_info.title);
+            //console.log("INFO ================ " + product_info.title);
             return res.json(product_info);
         } else {
             console.log('Товар не найден');
@@ -68,3 +68,23 @@ exports.productGetDescription = async (req, res) => {
         return res.status(500).json({ error: 'Ошибка при получении описания товара' });
     }
 };
+
+exports.getProductsByCategory = async (req, res) => {
+    const category_id_local = req.params.category_id;
+    console.log("CATEGORY ID IN GETPRODBYCAT ==============" + category_id_local);
+    
+    try {
+        const products = await Product.findAll({ where: { category_id:  category_id_local} });
+    
+        if (products) {
+            return res.json(products);
+        } else {
+            console.log('Товары по данной категории не найдены');
+            return res.status(404).json({ error: 'Товары по данной категории не найдены' });
+        }
+    } catch (error) {
+        console.log('Товары по данной категории не найдены', error);
+        return res.status(500).json({ error: 'Товары по данной категории не найдены' });
+    }
+};
+

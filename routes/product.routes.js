@@ -34,6 +34,11 @@ module.exports = function(app) {
     product_controller.productGetDescription
   );
 
+
+  app.get(
+    "/getProductsByCategory/:category_id",
+    product_controller.getProductsByCategory
+  );
   
 
 
