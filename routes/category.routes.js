@@ -19,5 +19,10 @@ module.exports = function(app) {
       "/getcategoryID/:name_category",
       category_controller.getCategoryIdByName
   );
+  app.get(
+    "/getAllCategories",
+    category_controller.getAllCategories
+);
+
 
 };

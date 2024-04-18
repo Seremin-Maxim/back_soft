@@ -48,7 +48,7 @@ app.get('api/productGetAll');
 app.get('api/productGetDescription');
 app.post('/api/productinfo/create');// проверить нужен ли / в конце
 app.get('/api/getProductsByCategory');
-
+app.get('/api/getAllCategories');
 
 
 /*
